@@ -1,6 +1,6 @@
 import level1 from "./Level1";
-// import level2 from "./level2"; // Later
+import level2 from "./Level2"
 
-const levels = [level1]; // Add more as you build them
+const levels = [level1, level2]; 
 
 export default levels;

@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className=" items-center justify-items-center w-[50%] h-auto bg-white p-2 pb-20 gap-16 sm:p-5 rounded-2xl">
     <div>
-        <h2 className="font-bold mb-1">Tango Game - Play Unlimited</h2>
+        <h2 className="font-bold mb-1">Tango Game -</h2>
         <p className=" mb-4">Tango Game is the ultimate visual logic puzzle inspired by Tango LinkedIn News game. This project is made by <strong>Hardik Sharma</strong> just for some fun</p>
         <div>
             <h3 className="font-bold mb-2">How to play:</h3>
