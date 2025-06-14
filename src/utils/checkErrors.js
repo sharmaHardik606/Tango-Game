@@ -18,7 +18,7 @@ export function checkErrors(grid, horizontalRules, verticalRules) {
 
   }
 
-  // Rule 4: No three same colors in a row (horizontal or vertical)
+  // Rule 2: No three same colors in a row (horizontal or vertical)
 for (let i = 0; i < 6; i++) {
   for (let j = 0; j < 4; j++) {
     // Check horizontal triplets
@@ -39,7 +39,7 @@ for (let i = 0; i < 6; i++) {
   }
 }
 
-  // Rule 2 & 3: Adjacency constraints
+  // Rule 3 & 4: = and X rule
   for (let row = 0; row < 6; row++) {
     for (let col = 0; col < 5; col++) {
       // 👉 Horizontal check
@@ -55,7 +55,7 @@ for (let i = 0; i < 6; i++) {
         ruleViolations.push({ type: "=", row, col });
       }
 
-      // 👉 Vertical check (✅ FIXED here)
+      // 👉 Vertical check
       const vRule = verticalRules[row]?.[col];
       const aV = grid[row][col];
       const bV = grid[row + 1]?.[col];

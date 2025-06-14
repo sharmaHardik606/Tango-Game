@@ -16,7 +16,7 @@ export default function Timer({ onTick, resetTrigger }) {
     return () => clearInterval(interval);
   }, []);
 
-  // 🔁 Reset when trigger changes
+  //Reset when state chengas
   useEffect(() => {
     setSecondsElapsed(0);
   }, [resetTrigger]);

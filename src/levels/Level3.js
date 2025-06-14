@@ -1,4 +1,4 @@
-//221
+
 const level3 = {
   cellGrid: [
     ["empty", "empty", "orange", "empty", "empty", "empty"],
