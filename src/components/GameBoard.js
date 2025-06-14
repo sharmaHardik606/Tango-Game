@@ -119,7 +119,7 @@ export default function GameBoard() {
 
 
   return (
-    <div className="items-center justify-items-center w-auto h-auto  bg-white p-2 sm:p-5 rounded-2xl">
+    <div className="items-center justify-center w-auto h-auto  bg-white p-2 sm:p-5 rounded-2xl">
       <div className="w-full h-auto mb-2 flex items-center justify-between  border-b-2 border-gray-100 p-2">
         <h1>Tango Game - Level {currentLevel + 1}</h1>
         <div className="flex items-center gap-1 ">
@@ -170,7 +170,7 @@ export default function GameBoard() {
       <div className=" w-full flex gap-5 items-center justify-center mt-5 border-t-2 border-gray-100 p-2">
 
           <button
-            className="flex items-center gap-1 bg-green-500 text-white sm:px-4 px-2 py-2 rounded-lg hover:bg-green-700 cursor-pointer text-sm"
+            className="flex items-center gap-1 bg-green-500 text-white sm:px-4 px-2 py-2 rounded-lg hover:bg-green-700 cursor-pointer text-sm active:bg-green-800"
             onClick={prevLevel}
           >
             <FaRegArrowAltCircleLeft className="text-lg"/>
@@ -178,14 +178,14 @@ export default function GameBoard() {
           </button>
 
           <button
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer text-sm"
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer text-sm active:bg-blue-800"
             onClick={clearGrid}
           >
             Clear
           </button>
           
           <button
-            className="flex items-center gap-1 bg-green-500 text-white sm:px-4 px-2 py-2 rounded-lg hover:bg-green-700 cursor-pointer text-sm "
+            className="flex items-center gap-1 bg-green-500 text-white sm:px-4 px-2 py-2 rounded-lg hover:bg-green-700 cursor-pointer text-sm active:bg-green-800"
             onClick={nextLevel}
           >
             Next Level

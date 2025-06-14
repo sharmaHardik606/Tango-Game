@@ -4,7 +4,7 @@ import GameBoard from "@/components/GameBoard";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-items-center w-full h-full p-8 gap-16 sm:p-20 bg-gray-100">
+    <div className="flex flex-col items-center justify-items-center w-full h-full py-4 px-0.5 gap-y-6 bg-gray-100">
       <GameBoard />
       <Footer />
     </div>
