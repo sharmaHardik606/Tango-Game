@@ -17,7 +17,7 @@ export default function ErrorOverlay({
     <>
       {/* Horizontal Rule */}
       {col < 5 && horizontalRule && (
-        <div className={`absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 rounded-2xl px-1 text-lg font-bold ${
+        <div className={`absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 rounded-2xl px-1 text-lg z-10 font-bold ${
           isHorizontalViolation ? "bg-red-200 text-red-800" : "bg-white"
         }`}>
           {horizontalRule}

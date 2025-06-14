@@ -5,6 +5,11 @@ import levels from "@/levels";
 import Timer from "@/components/Timer";
 import { checkErrors } from "@/utils/checkErrors";
 import ErrorOverlay from "@/components/ErrorOverlay";
+import { PiClockCountdownBold } from "react-icons/pi";
+import { FaRegArrowAltCircleRight } from "react-icons/fa";
+import { FaRegArrowAltCircleLeft } from "react-icons/fa";
+
+
 
 
 export default function GameBoard() {
@@ -80,7 +85,7 @@ export default function GameBoard() {
         if (grid[i][j] !== solution[i][j]) return false;
       }
     }
-    return true;
+    return  true;
   };
 
   const clearGrid = () => {
@@ -103,29 +108,27 @@ export default function GameBoard() {
     }
   };
 
-  return (
-    <div className="items-center justify-items-center w-[50%] h-auto bg-white p-2 pb-20 gap-16 sm:p-5 rounded-2xl">
-      <div className="w-full h-auto mb-2 flex items-center justify-between gap-2 border-b-2 border-gray-100 p-2">
-        <h1>Tango Game - Level {currentLevel + 1}</h1>
-        <div className="flex gap-5 items-center">
-          <Timer onTick={(t) => setSecondsElapsed(t)} resetTrigger={timerResetKey} />
+  const prevLevel = () => {
+  const previous = currentLevel - 1;
+  if (previous >= 0) {
+    setCurrentLevel(previous);
+    setSecondsElapsed(0);
+    setTimerResetKey(prev => prev + 1);
+  }
+  };
 
-          <button
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer"
-            onClick={clearGrid}
-          >
-            Clear
-          </button>
-          <button
-            className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-700 cursor-pointer"
-            onClick={nextLevel}
-          >
-            Next Level
-          </button>
+
+  return (
+    <div className="items-center justify-items-center w-auto h-auto  bg-white p-2 sm:p-5 rounded-2xl">
+      <div className="w-full h-auto mb-2 flex items-center justify-between  border-b-2 border-gray-100 p-2">
+        <h1>Tango Game - Level {currentLevel + 1}</h1>
+        <div className="flex items-center gap-1 ">
+          <PiClockCountdownBold className="text-lg"/> 
+          <Timer onTick={(t) => setSecondsElapsed(t)} resetTrigger={timerResetKey} />
         </div>
       </div>
 
-      <div className="grid grid-cols-6 gap-1">
+      <div className="grid grid-cols-6 gap-0.5 z-10">
         {gridState.map((rowArr, row) =>
           rowArr.map((cell, col) => {
             const isGray = (row + col) % 2 === 1;
@@ -136,7 +139,7 @@ export default function GameBoard() {
             return (
               <div key={`${row}-${col}`} className="relative">
                 <div
-                  className={`h-20 w-20 border rounded-2xl border-gray-400 ${
+                  className={`h-13 w-13  sm:h-18 sm:w-18 border rounded-2xl border-gray-400 ${
                     isGray ? "bg-gray-100" : "bg-white"
                   } ${hasRowError || hasColError ? "border-red-500" : ""} flex items-center justify-center`}
                   onClick={() => handleToggle(row, col)}
@@ -144,7 +147,7 @@ export default function GameBoard() {
 
                   {cell !== "empty" && (
                     <div
-                      className={`w-10 h-10 rounded-full ${
+                      className={`h-8 w-8 sm:w-10 sm:h-10 rounded-full ${
                         cell === "orange" ? "bg-orange-500" : "bg-blue-500"
                       }`}
                     ></div>
@@ -164,6 +167,31 @@ export default function GameBoard() {
           })
         )}
       </div>
+      <div className=" w-full flex gap-5 items-center justify-center mt-5 border-t-2 border-gray-100 p-2">
+
+          <button
+            className="flex items-center gap-1 bg-green-500 text-white sm:px-4 px-2 py-2 rounded-lg hover:bg-green-700 cursor-pointer text-sm"
+            onClick={prevLevel}
+          >
+            <FaRegArrowAltCircleLeft className="text-lg"/>
+            Prev Level 
+          </button>
+
+          <button
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer text-sm"
+            onClick={clearGrid}
+          >
+            Clear
+          </button>
+          
+          <button
+            className="flex items-center gap-1 bg-green-500 text-white sm:px-4 px-2 py-2 rounded-lg hover:bg-green-700 cursor-pointer text-sm "
+            onClick={nextLevel}
+          >
+            Next Level
+            <FaRegArrowAltCircleRight  className="text-lg"/>
+          </button>
+        </div>
     </div>
   );
 }
